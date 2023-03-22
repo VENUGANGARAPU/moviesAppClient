@@ -10,8 +10,8 @@ function Homepage() {
   const[submit,setSubmit]=useState(false);
   const[data,setData] = useState([]);
   const[multiSearch,setMulti] = useState("multi");
-  const[error,setError]=useState("");
-
+  const[error,setError]=useState("");;
+  const[loading,setLoading]=useState(true);
   const handleSubmit =(e)=>{
     e.preventDefault();
   }
@@ -31,6 +31,7 @@ useEffect(()=>{
       const data = await response.json();
       setData(data.results);
       setMulti("movie");
+      setLoading(false);
     } catch (error) {
       console.log("error");
       setError("404 please try later");
@@ -45,7 +46,8 @@ useEffect(()=>{
         try {
             const response = await fetch(`https://moviesapi-fwxb.onrender.com/search/${multiSearch}/${search}`);
             const data = await response.json();
-            setData(data.results)
+            setData(data.results);
+            setLoading(false);
         } catch (error) {
             console.log("error");
         }
@@ -71,6 +73,7 @@ useEffect(()=>{
       </div>
       </div>
       <div>
+        {loading && <h1 style={{color:"red" ,margin:"60px"}}>...Loading</h1>}
       {!data.length && <h2 style={{color:"red" ,margin:"60px"}}>please enter movie name correctly</h2>  }
         {error && <h2 style={{color:"red"}}>error</h2>}
       </div>
