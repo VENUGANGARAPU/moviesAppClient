@@ -50,6 +50,7 @@ useEffect(()=>{
             setLoading(false);
         } catch (error) {
             console.log("error");
+            setError("404 please try later");
         }
     }
     submit && fetchData();
@@ -73,8 +74,9 @@ useEffect(()=>{
       </div>
       </div>
       <div>
+        {error && <p style={{color:"red" ,margin:"60px"}}>Network error</p>}
         {loading && <h1 style={{color:"red" ,margin:"60px"}}>...Loading</h1>}
-      {!loading && !data.length && <h2 style={{color:"red" ,margin:"60px"}}>please enter movie name correctly</h2>  }
+      {!loading && !data.length && <h2 style={{color:"red" ,margin:"60px"}}>please enter movie name correctly</h2>}
       </div>
         <div className='homeMain'>
             {data && data.map((eachMovie)=>{
