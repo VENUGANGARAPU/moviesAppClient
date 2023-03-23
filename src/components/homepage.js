@@ -68,7 +68,7 @@ useEffect(()=>{
             <option valye='movie'>movie</option>
             <option value='tv'>tv shows</option>
           </select>
-            <input type='text' className='input' value={search} onChange={handleChanges}/>
+            <input type='text' className='input' value={search} placeholder='search by movie name'  onChange={handleChanges}/>
             <button type='submit' onClick={()=>setSubmit(true)}><AiOutlineSearch/></button>
         </form>
       </div>

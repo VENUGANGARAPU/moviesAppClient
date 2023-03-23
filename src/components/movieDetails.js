@@ -41,7 +41,7 @@ const MovieDetails = () => {
       <h1 style={{marginTop:'10px'}}>{title}</h1><p style={{color:'#ECF9FF',marginBottom:'5px'}}>{release_date && release_date.split("-")[0]}</p>
       <div className='img-movieDetails'>
       <div>
-      <a href={homepage}>
+      <a href={homepage && homepage }>
       <img className='mainImg' src= {`https://image.tmdb.org/t/p/w185/${poster_path}`} alt={title} /></a></div>
       <div className='img-movieDetails1'>
         <h3>{tagline}</h3>
